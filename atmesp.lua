@@ -15,7 +15,7 @@ local function atmEnabled(enabled)
     for _, atm in ipairs(atmList) do
         local atmScreen = atm:FindFirstChild("ATMScreen")
         if atmScreen then
-            atmScreen.Enabled = enabled
+            atmScreen.Visible = enabled
         end
     end
 end
@@ -28,6 +28,7 @@ local function loadATMs()
     end
 end
 
+-- Function to create BillboardGui for each ATM
 -- Function to create BillboardGui for each ATM
 local function createBillboardGui(atm)
     local atmScreen = atm:FindFirstChild("ATMScreen")
@@ -56,6 +57,7 @@ local function createBillboardGui(atm)
         atmScreen:GetPropertyChangedSignal("Transparency"):Connect(updateColor)
     end
 end
+
 
 -- Initial loading of ATMs
 loadATMs()
